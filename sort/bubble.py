@@ -2,7 +2,6 @@ import numpy as np
 import time
 
 
-
 def bubble_sort(unsorted_array):
     len_array = len(unsorted_array)
     for i in range(len_array):
