@@ -7,12 +7,10 @@ def selection_sort(unsorted_array):
     start = 0
     end = len_array
     for i in range(start, end - 1):
-        num = unsorted_array[i]
         index = i
         for j in range(i+1, end):
-            if num > unsorted_array[j]:
+            if unsorted_array[index] > unsorted_array[j]:
                 index = j
-                num = unsorted_array[j]
         unsorted_array[i], unsorted_array[index] = unsorted_array[index], unsorted_array[i]
     sorted_array = unsorted_array.copy()
     return sorted_array
