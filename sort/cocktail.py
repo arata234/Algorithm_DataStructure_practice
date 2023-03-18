@@ -32,7 +32,7 @@ def cocktail_sort(unsorted_array):
 
 
 if __name__ == "__main__":
-    unsorted_array = np.random.randint(0, 100, 10000)
+    unsorted_array = np.random.randint(0, 100, 100)
     start = time.time()
     array, c = cocktail_sort(unsorted_array)
     print("time: ", time.time() - start)
