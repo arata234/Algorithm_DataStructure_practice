@@ -1,10 +1,10 @@
 class Node(object):
-    def __init__(self, data, next_node):
+    def __init__(self, data, next_node=None):
         self.data = data
         self.next = next_node
 
 class LinkedList(object):
-    def __init__(self, head):
+    def __init__(self, head=None):
         self.head = head
         
     def append(self, data):
@@ -29,3 +29,33 @@ class LinkedList(object):
             print(current_node.data)
             current_node = current_node.next
             
+    def remove(self, data):
+        # head == dataのときheadをremove
+        current_node = self.head
+        if current_node and current_node.data == data:
+            self.head = current_node.next
+            current_node = None
+            return 
+
+        previous_node = None
+        # current_node == dataになるまで動かす
+        while current_node and current_node.data != data:
+            previous_node = current_node
+            current_node = current_node.next
+            
+        # current_node == dataが存在しないとき
+        if current_node is None:
+            return
+        # current_node
+        previous_node.next = current_node.next
+        current_node = None
+        
+if __name__ == "__main__":
+    l = LinkedList()
+    l.append(1)
+    l.append(2)
+    l.append(3)
+    l.insert(0)
+    l.remove(2)
+    l.remove(1)
+    l.print()
