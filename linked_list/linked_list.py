@@ -53,19 +53,40 @@ class LinkedList(object):
         
         self.head = _reverse_rec(self.head, None)
 
+    def reverse_even(self):
+        def _reverse_even(head, previous_node):
+            if head is None:
+                return None
+            current_node = head
+            while current_node and current_node.data % 2 == 0:
+                next_node = current_node.next
+                current_node.next = previous_node
+                previous_node = current_node
+                current_node = next_node
+            
+            if current_node != head:
+                head.next = current_node
+                _reverse_even(current_node, None)
+                return previous_node
 
+            else:
+                head.next = _reverse_even(head.next, head)
+                return head
 
-
+        self.head = _reverse_even(self.head, None)
+        
 
 if __name__ == "__main__":
     l = LinkedList()
     print(l.head)
     l.append(1)
     l.append(2)
-    l.append(3)
-    l.insert(0)
-    l.print()
+    l.append(4)
+    l.append(6)
+    l.append(8)
+    l.append(9)
+    # l.print()
     # l.reverse_iterative()
     # l.print()
-    l.reverse_rec()
+    l.reverse_even()
     l.print()
