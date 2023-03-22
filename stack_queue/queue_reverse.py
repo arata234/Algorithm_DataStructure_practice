@@ -6,6 +6,7 @@ def reverse(queue):
         new_queue.append(queue.pop())
     return new_queue
 
+
 if __name__ == "__main__":
     q = deque()
     q.append(1)
