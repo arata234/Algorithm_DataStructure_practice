@@ -108,18 +108,28 @@ class Doubly_LinkedList(object):
         
         self.head = _reverse_rec(self.head)
 
+    def sort(self):
+        if self.head == None:
+            return
+        
+        current_node = self.head
+        while current_node.next:
+            next_node = current_node.next
+            while next_node:
+                if current_node.data > next_node.data:
+                    current_node.data, next_node.data = next_node.data, current_node.data
+                next_node = next_node.next
+            current_node = current_node.next
 
 if __name__ == "__main__":
     l = Doubly_LinkedList()
-    l.append(1)
-    l.insert(0)
-    l.append(2)
-    l.append(3)
-    l.append(4)
     l.append(5)
-    l.append(6)
-    l.remove(6)
-    l.reverse_rec()
+    l.append(3)
+    l.append(1)
+    l.append(2)
+    l.append(4)
+    l.print()
+    l.sort()
     l.print()
     
 
