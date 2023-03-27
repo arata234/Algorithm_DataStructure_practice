@@ -1,6 +1,3 @@
-
-
-
 from typing import List
 def order_index_v1(chars: List[str], indexes:List[int]) -> str:
     temp = [None] * len(chars)
